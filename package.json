@@ -1,0 +1,41 @@
+{
+  "name": "amil-vendas",
+  "version": "1.0.0",
+  "description": "Static files for Amil Venda Online Saude project",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "angular-mocks": "1.5.0",
+    "firefox-profile": "0.3.11",
+    "grunt": "0.4.5",
+    "grunt-bower-concat": "1.0.0",
+    "grunt-compass-multiple": "0.2.1",
+    "grunt-contrib-clean": "0.5.0",
+    "grunt-contrib-compass": "0.9.0",
+    "grunt-contrib-compress": "0.10.0",
+    "grunt-contrib-concat": "1.0.0",
+    "grunt-contrib-connect": "0.11.2",
+    "grunt-contrib-copy": "0.5.0",
+    "grunt-contrib-cssmin": "0.10.0",
+    "grunt-contrib-uglify": "1.0.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-istanbul": "0.7.0",
+    "grunt-modernizr": "0.5.2",
+    "grunt-ng-annotate": "2.0.2",
+    "grunt-protractor-coverage": "0.2.17",
+    "grunt-protractor-runner": "3.2.0",
+    "grunt-protractor-webdriver": "0.2.5",
+    "grunt-replace": "0.11.0",
+    "grunt-shell": "0.7.0",
+    "grunt-spritesmith": "6.3.1",
+    "http-rewrite-middleware": "0.1.6",
+    "httpbackend": "2.0.0",
+    "load-grunt-tasks": "0.6.0",
+    "protractor": "3.1.1",
+    "protractor-html-screenshot-reporter": "0.0.21",
+    "q": "1.4.1",
+    "serve-static": "1.11.1"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/protractor/bin/webdriver-manager update"
+  }
+}
