@@ -16,7 +16,7 @@ public class Main {
 		//ZipUtil.zipDir("testdata/SWT", null);
 
 		//Zip with Password
-		ZipUtil.zipFileWithPassword("package.json",  "temp.zip","abcd1234");
+		ZipUtil.zipFileWithPassword("package.json",  "newZippedEncrypted.zip","luis");
 		//ZipUtil.zipDirWithPassword("testdata/SWT", null,"abcd1234");
 
 		//Normal Unzip

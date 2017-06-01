@@ -203,40 +203,41 @@ public final class ZipUtil {
 					+ File.separator + tempFile.getName() + ".zip";
 		}
 
-		ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(
-				zipFileName));
-		
-		
-		byte[] readBuffer = new byte[2156];
-		int bytesIn = 0;
-			File f = new File(fileName);
-			
-			FileInputStream fis = new FileInputStream(f);
-			try {
-				ZipEntry anEntry = new ZipEntry(f.getName());
-				zos.putNextEntry(anEntry);
-				bytesIn = fis.read(readBuffer);
-				while (bytesIn != -1) {
-					zos.write(readBuffer, 0, bytesIn);
-					bytesIn = fis.read(readBuffer);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				fis.close();
-			}
-	
-			zos.close();
+//		ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(
+//				zipFileName));
+//		
+//		
+//		byte[] readBuffer = new byte[2156];
+//		int bytesIn = 0;
+//			File f = new File(fileName);
+//			
+//			FileInputStream fis = new FileInputStream(f);
+//			try {
+//				ZipEntry anEntry = new ZipEntry(f.getName());
+//				zos.putNextEntry(anEntry);
+//				bytesIn = fis.read(readBuffer);
+//				while (bytesIn != -1) {
+//					zos.write(readBuffer, 0, bytesIn);
+//					bytesIn = fis.read(readBuffer);
+//				}
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			} finally {
+//				fis.close();
+//			}
+//	
+//			zos.close();
 
 
-		String tempZipFileName = new File(fileName).getAbsoluteFile()
-				.getParent() + File.separator + "tempencrypted.zip";
+//		String tempZipFileName = new File(fileName).getAbsoluteFile()
+//				.getParent() + File.separator + "tempencrypted.zip";
 		try {
-			AesZipFileEncrypter enc = new AesZipFileEncrypter(tempZipFileName,
-					new AESEncrypterBC());
-			enc.add(new File(zipFileName), password);
-			new File(zipFileName).delete();
-			new File(tempZipFileName).renameTo(new File(zipFileName));
+//			AesZipFileEncrypter enc = new AesZipFileEncrypter(new File(zipFileName).getAbsoluteFile(),
+//					new AESEncrypterBC());
+//			enc.add(new File(fileName), password);
+			AesZipFileEncrypter.zipAndEncrypt(new File(fileName), new File(zipFileName), password, new AESEncrypterBC());
+//			new File(zipFileName).delete();
+//			new File(tempZipFileName).renameTo(new File(zipFileName));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
