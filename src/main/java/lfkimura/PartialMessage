@@ -1,0 +1,37 @@
+package tweetstorm;
+
+public class PartialMessage {
+	private String messageBody;
+
+	private int messageNumber;
+
+	public PartialMessage(int messageNumber, String subMessage) {
+		this.messageBody = subMessage;
+		this.messageNumber = messageNumber;
+	}
+
+	public String getMessageBody() {
+		return messageBody;
+	}
+
+	public void setMessageBody(String messageBody) {
+		this.messageBody = messageBody;
+	}
+
+	public int getMessageNumber() {
+		return messageNumber;
+	}
+
+	public void setMessageNumber(int messageNumber) {
+		this.messageNumber = messageNumber;
+	}
+
+	public String getPrefix(int size) {
+		return "" + messageNumber + "/" + size + ":";
+	}
+
+	public String printMessage(int size) {
+		return "" + this.getPrefix(size) + messageBody;
+	}
+
+}
