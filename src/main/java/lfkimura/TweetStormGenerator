@@ -1,0 +1,48 @@
+package tweetstorm;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TweetStormGenerator {
+
+	private static int MAX_MESSAGE_SIZE = 140;
+	private static int PREFIX_LENGTH = 8;
+
+	List<PartialMessage> messageList = new ArrayList<PartialMessage>();
+	private String message;
+
+	public TweetStormGenerator(String message) {
+		this.message = message;
+
+	}
+
+	public TweetStormGenerator build() {
+		int messageNumber = 0;
+		boolean reachedEnd = false;
+		long totalSize = message.length();
+		String subMessage = "";
+		while (!reachedEnd) {
+			boolean isTheLastMessage = (messageNumber + 1) * MAX_MESSAGE_SIZE >= totalSize;
+			if (isTheLastMessage) {
+				reachedEnd = true;
+				subMessage = message.substring(messageNumber * MAX_MESSAGE_SIZE);
+
+			} else {
+				int lastIndex = messageNumber * MAX_MESSAGE_SIZE + MAX_MESSAGE_SIZE - PREFIX_LENGTH;
+				subMessage = message.substring(messageNumber * MAX_MESSAGE_SIZE, lastIndex);
+			}
+			messageList.add(new PartialMessage(messageNumber + 1, subMessage));
+			messageNumber++;
+		}
+		return this;
+	}
+
+	public void generate() {
+		for (PartialMessage p : messageList) {
+			System.out.println(p.printMessage(messageList.size()));
+
+		}
+
+	}
+
+}
